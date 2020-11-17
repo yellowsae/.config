@@ -78,28 +78,7 @@ let g:indent_guides_enable_on_vim_startup = 0  " 默认关闭
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
 let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
 
-" 关闭方向键, 强迫自己用 hjkl vim禁用方向键
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
 
-" 空格t  加载配置文件
-map <leader>t :source $MYVIMRC<CR>
-
-
-" 定义快捷键到行尾部和首部
-nmap H ^
-nmap L $
-
-" Resize splits with arrow keys(设置窗口上下左右大小)
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
-
-" 解决终端下配色方案异常
-let &t_ut=''
 
 
 "语法高亮
@@ -183,8 +162,6 @@ map tl :+tabnext<CR>
 
 " 插件
 call plug#begin('~/.config/nvim/plugged')
-
-" 配置
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -202,129 +179,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'crusoexia/vim-monokai'
 Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdcommenter'
-Plug 'mhinz/vim-startify'  " 可以显示历史文件
-Plug 'kien/ctrlp.vim'  " 文件模糊搜索器
-Plug 'easymotion/vim-easymotion' " 使用ss 查找两个字母并跳转   查找单词并跳转 快速定位，文件位置任我行
-Plug 'RRethy/vim-illuminate'  " 显示光标下当前单词的其他用法
-Plug 'AndrewRadev/splitjoin.vim' " 在单行和多行代码形式之间切换
-Plug 'wellle/tmux-complete.vim'
-
-
-" Git
-Plug 'junegunn/gv.vim'  " 查看提交记录
-Plug 'tpope/vim-fugitive'  " git插件
-Plug 'theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-Plug 'fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
-
-Plug 'airblade/vim-gitgutter'  " vim显示文件变动
-
-
-" Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown'] }
-Plug 'theniceboy/bullets.vim'
-
-" HTML, CSS, JavaScript, PHP, JSON, etc.
-Plug 'elzr/vim-json'
-Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-
-" Python
-Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
-"Plug 'vim-scripts/indentpython.vim', { 'for' :['python', 'vim-plug'] }
-"Plug 'plytophogy/vim-virtualenv', { 'for' :['python', 'vim-plug'] }
-Plug 'tweekmonster/braceless.vim'
-Plug 'vim-scripts/indentpython.vim' " python缩进脚本
-
-" Debugger
-Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python '}
 call plug#end()
 
-
-" ===
-" === vim-fugitive
-" ===
-nnoremap gb :Gblame<CR>
-
-" ===
-" === vim-easymotion
-" ===
-nmap ss <Plug>(easymotion-s2)
-
-
-" ==
-" == GitGutter  (显示文件变动)
-" ==
-let g:gitgutter_signs = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
-
-" ===
-" === vim-illuminate
-" ===
-let g:Illuminate_delay = 250
-hi illuminatedWord cterm=undercurl gui=undercurl
-
-" ===
-" === vim-markdown-toc
-" ===
-"let g:vmt_auto_update_on_save = 0
-"let g:vmt_dont_insert_fence = 1
-let g:vmt_cycle_list_item_markers = 1
-let g:vmt_fence_text = 'TOC'
-let g:vmt_fence_closing_text = '/TOC'
-" ===
-" === MarkdownPreview
-" ===
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
-let g:mkdp_open_ip = ''
-let g:mkdp_echo_preview_url = 0
-let g:mkdp_browserfunc = ''
-let g:mkdp_preview_options = {
-            \ 'mkit': {},
-            \ 'katex': {},
-            \ 'uml': {},
-            \ 'maid': {},
-            \ 'disable_sync_scroll': 0,
-            \ 'sync_scroll_type': 'middle',
-            \ 'hide_yaml_meta': 1
-            \ }
-let g:mkdp_markdown_css = ''
-let g:mkdp_highlight_css = ''
-let g:mkdp_port = ''
-let g:mkdp_page_title = '「${name}」'
-
-
-" ===
-" === Markdown Settings
-" ===
-" Snippets
-""source $XDG_CONFIG_HOME/nvim/md-snippets.vim
-"source ~/.config/nvim/md-snippets.vim
-" auto spell
-autocmd BufRead,BufNewFile *.md setlocal spell
-
-
-
-
-" nerdcommenter 注释插件
+"nerdcommenter 注释插件
 "add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " python 自动的会多加一个空格
