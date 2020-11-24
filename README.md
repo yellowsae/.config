@@ -4,10 +4,12 @@
 
 配置严重抄袭 
 
-*https://github.com/theniceboy/nvim
-*https://www.cnblogs.com/cniwoq/p/13272747.html   
-*https://gitee.com/muaimingjun/nvim/blob/master/init.vim
-*
+ * https://github.com/theniceboy/nvim
+
+* https://www.cnblogs.com/cniwoq/p/13272747.html   
+
+* https://gitee.com/muaimingjun/nvim/blob/master/init.vim
+
 
 配置环境 
 
