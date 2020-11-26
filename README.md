@@ -2,7 +2,7 @@
 
 
 
-配置严重抄袭 
+配置参考
 
  * https://github.com/theniceboy/nvim
 
