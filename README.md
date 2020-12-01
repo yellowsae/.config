@@ -19,4 +19,4 @@
  * 还有一些依赖包` pip install pynvim `    `pip install jedi`  pip慢也要换源 
 
 
-[![Df1ARe.png](https://s3.ax1x.com/2020/12/01/Df1ARe.png)](https://imgchr.com/i/Df1ARe)
+![Df1ARe.png](https://s3.ax1x.com/2020/12/01/Df1ARe.png)
