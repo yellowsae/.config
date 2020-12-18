@@ -289,7 +289,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['vim-plug', 'php', 'html', 'javascript
 Plug 'yuezk/vim-js', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
 Plug 'jelera/vim-javascript-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-
+Plug 'uiiaoo/java-syntax.vim'   " java 语法高亮 
 " Python
 Plug 'tmhedberg/SimpylFold', { 'for' :['python', 'vim-plug'] }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug'] }
@@ -325,9 +325,15 @@ Plug 'itchyny/calendar.vim'   " \ \	显示时钟  \ c	显示日历
 
 Plug 'junegunn/goyo.vim'
 
+Plug 'itchyny/vim-cursorword'   " 同单词 出现 下划线
+
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
 call plug#end()
+
+
+" java-script 
+" highlight link JavaIdentifier NONE   不使用高亮
 
 
 " ===
