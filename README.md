@@ -13,7 +13,13 @@
 - nvim 4.4
 - nvim-plug
 - node npm 需要换源
-- 还有一些依赖包`pip install pynvim` `pip install jedi` pip 慢也要换源
+- 还有一些依赖包
+  `pip install pynvim` 
+  `pip install jedi` 
+  `npm i -g bash-language-server` 
+  `npm i -g neovim`
+  
+   pip 慢也要换源
 
 - 系统 ： ArchLinux
 - 运行环境 ： SSH
